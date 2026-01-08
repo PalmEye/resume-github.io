@@ -1,0 +1,177 @@
+:root {
+  --accent: #00c921;
+  --accent-soft: #3b583f;
+  --dark: #112715;
+  --gray: #6b806f;
+  --bg: #f3f6f4;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: Inter, system-ui, sans-serif; /*норм шрифт*/
+  background-repeat: no-repeat;     
+  background-position: center center; 
+  background-size: cover;            
+  background-attachment: fixed;     
+  color: #142711;
+  line-height: 1.6;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 201, 33, 0.15);
+  pointer-events: none;
+  z-index: -1;
+}
+
+
+.container {
+  max-width: 1000px;
+  margin: 40px auto;
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+header {
+  padding: 50px;
+  background: linear-gradient(135deg, var(--accent), #0f862d);
+  color: #ffffff;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+}
+
+header p {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+.contacts {
+  margin-top: 20px;
+}
+
+.contacts a {
+  color: #ffffff;
+  margin: 0 10px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.contacts a:hover { text-decoration: underline; }
+
+main { padding: 40px 50px; }
+
+section { margin-bottom: 40px; }
+
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: var(--accent);
+  border-bottom: 3px solid var(--accent);
+  display: inline-block;
+  padding-bottom: 4px;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.skill {
+  background: var(--accent-soft);
+  color: var(--accent);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-weight: 600;
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s, color 0.3s;
+}
+
+/* Подсветка при наведении курсора на навык */
+.skill:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(31, 146, 37, 0.4);
+  background: var(--accent);
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.skill.highlight {
+  transform: scale(1.1);
+  box-shadow: 0 4px 10px rgba(70, 229, 97, 0.4);
+}
+
+button#highlightSkills {
+  padding: 8px 16px;
+  background: var(--accent);
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+/* Текст изначально скрыт */
+#crocosText.collapsed {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, padding 0.3s ease;
+  padding-top: 0;
+}
+
+/* Развёрнутый текст */
+#crocosText.expanded {
+  max-height: 300px; /* можно подстроить под длину текста */
+  padding-top: 10px;
+}
+
+/* Заголовок интерактивный */
+h2.clickable {
+  cursor: pointer;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+/* Подсветка при наведении */
+h2.clickable:hover {
+  color: #00c921;        /* акцентный зелёный */
+  text-shadow: 0 0 8px rgba(0,201,33,0.5);
+}
+
+.project {
+  border: 1px solid #e5ebe6;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 15px;
+  background: #f9fbfa;
+}
+
+.project h3 { margin-bottom: 8px; }
+
+.project p { color: var(--gray); }
+
+footer {
+  text-align: center;
+  padding: 25px;
+  font-size: 0.9rem;
+  color: var(--gray);
+  background: #cfddd1;
+}
+
+@media (max-width: 700px) {
+  header { padding: 35px 25px; }
+  main { padding: 25px 20px; }
+  header h1 { font-size: 2.2rem; }
+  h2 { font-size: 1.5rem; }
+}
